@@ -10,6 +10,7 @@
                     <field name="name"/>
                     <field name="code"/>
                     <field name="capacity"/>
+                    <field name="image"/>
                 </tree>
             </field>
         </record>
@@ -32,7 +33,7 @@
                             <group>
                                 <field name="code"/>
                                 <field name="capacity"/>
-                                <field name="image"/>
+                                <field name="image" widget="image"/>
                             </group>
                             <group>
                             </group>

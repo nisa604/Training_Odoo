@@ -53,8 +53,14 @@
 
         <menuitem
             id="bus_route_menu"
-            name="Route"
+            name="Configuration"
             parent="root_menu_transportation_management"
+        />
+
+        <menuitem
+            id="bus_route"
+            name="Bus Route"
+            parent="bus_route_menu"
             action="bus_route_action"
         />
 
