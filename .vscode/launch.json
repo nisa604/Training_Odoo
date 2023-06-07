@@ -17,7 +17,7 @@
             "args": [
                 "--config=D:/keep odoo/server/odoo.conf",
                 "--database=TRAINING",
-                // "--update=nama_folder1,nama_folder2
+                "--update=na_training_odoo"
             ]
         }
     ]

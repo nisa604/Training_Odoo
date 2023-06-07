@@ -1,17 +1,21 @@
 # -*- coding: utf-8 -*-
+# @Author: Your name
+# @Date:   2023-06-07 12:06:56
+# @Last Modified by:   Your name
+# @Last Modified time: 2023-06-07 14:20:59
+
 {
-    'name': "na_training_odoo",
+    'name': "Training Odoo (Nisa)",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Modul Transportasi Management""",
 
     'description': """
-        Long description of module's purpose
+        platform logistik menggunakan teknologi yang berfungsi untuk merencanakan, melaksanakan, dan mengoptimalkan pergerakan sebuah barang, baik masuk maupun keluar, serta memastikan pengiriman sesuai berdasarkan dokumentasi yang tersedia.
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Nurul Anisah",
+    'website': "https://www.linkedin.com/in/nurul-anisah-07b81721b/",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -24,9 +28,13 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'security/ir.model.access.csv',
+        'views/menuitems.xml',
+        'views/res_passenger_view.xml',
+        'views/res_bus_view.xml',
+        'views/bus_schedule_view.xml',
+        'views/bus_route_view.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [
