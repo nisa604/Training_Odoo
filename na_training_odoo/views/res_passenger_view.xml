@@ -10,6 +10,7 @@
                     <field name="name"/>
                     <field name="weight"/>
                     <field name="height"/>
+                    <field name="gender"/>
                 </tree>
             </field>
         </record>
@@ -33,6 +34,7 @@
                                 <field name="weight"/>
                                 <field name="height"/>
                                 <field name="born_date"/>
+                                <field name="gender"/>
                             </group>
                             <group>
                             </group>
