@@ -8,10 +8,9 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="schedule"/>
-                    <field name="payment_type"/>
                     <field name="departure"/>
                     <field name="arrival"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
@@ -23,6 +22,28 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
+                    <field name="state" widget="statusbar"/>
+                    <button 
+                        name="button_submit"
+                        string="Submit"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('state', '!=', 'draft')]}"
+                    />
+                    <button 
+                        name="button_run"
+                        string="Run"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('state', '!=', 'submit')]}"
+                    />
+                    <button 
+                        name="button_done"
+                        string="Done"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('state', '!=', 'run')]}"
+                    />
                     </header>
                     <sheet>
                     <div class="oe_title">
@@ -32,17 +53,32 @@
                         </div>
                         <group>
                             <group>
-                                <field name="bus_id"/>
-                                <field name="capacity"/>
-                                <field name="schedule"/>
-                                <field name="payment_type"/>
-                                <field name="departure"/>
-                                <field name="arrival"/>
+                                <field name="bus_id" 
+                                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                    domain="[('state', '=', 'ready')]"
+                                />
+                                <field name="capacity" 
+                                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                />
+                                <field name="schedule" 
+                                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                />
+                                <field name="payment_type" 
+                                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                />
+                                <field name="departure" 
+                                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                />
+                                <field name="arrival" 
+                                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                />
                             </group>
                         </group>
                         <notebook>
                             <page string="Passenger">
-                                <field name="passenger_ids">
+                                <field name="passenger_ids"
+                                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                >
                                 <tree>
                                     <field name="name"/>
                                     <field name="gender"/>
@@ -50,7 +86,9 @@
                                 </field>
                             </page>
                             <page string="Baggage">
-                                <field name="baggage_line_ids">
+                                <field name="baggage_line_ids"
+                                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                >
                                 <tree editable="bottom">
                                     <field name="name"/>
                                     <field name="weight"/>

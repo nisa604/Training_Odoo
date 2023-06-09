@@ -31,6 +31,16 @@ class BusSchedule(models.Model):
         string='Capacity',
         related='bus_id.capacity',
     )
+    state = fields.Selection(
+        selection=[
+            ("draft","Draft"),
+            ("submit","Submitted"),
+            ("run","On Going"),
+            ("done","Done")
+            ], 
+        string='Status', 
+        default='draft'
+        )
 
     @api.model
     def create(self, values):
@@ -39,3 +49,30 @@ class BusSchedule(models.Model):
         result['name'] = self.env['ir.sequence'].next_by_code('bus.schedule.sequence')
 
         return result
+    
+    def button_submit(self):
+        for rec in self:
+            rec.write ({
+                'state' : 'submit'
+            })
+    def button_run(self):
+        for rec in self:
+            rec.write({
+                'state': 'run'
+            })
+    def button_done(self):
+        for rec in self:
+            rec.write({
+                'state': 'done'
+            })
+
+class Baggage(models.Model):
+    _name = 'baggage.baggage'
+    _description = 'Baggage'
+
+    name = fields.Char(string='Name')
+    weight = fields.Float(string='Weight(Kg)')
+    schedule_id = fields.Many2one(
+        comodel_name='bus.schedule',
+        string='Schedule',
+    )
