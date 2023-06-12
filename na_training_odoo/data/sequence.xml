@@ -4,7 +4,7 @@
         <record model="ir.sequence" id="bus_shedule_sequence" >
             <field name="name">Bus Schedule Sequance</field>
             <field name="code">bus.shedule.sequence</field>
-            <field name="prefix">SCHDL/%(y)s/%(month)s/%(day)s</field>
+            <field name="prefix">SCHDL/%(year)s/%(month)s</field>
             <field name="padding">5</field>
         </record>
     </data>
