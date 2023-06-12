@@ -3,11 +3,11 @@
     <data>
         <record model="ir.ui.view" id="na_training_odoo_inherit_hr_employee_view_form">
             <field name="name">na.training.odoo.inherit.hr.employee.view.form</field>
-            <field name="model">na.training.odoo.inherit.hr.employee.view.form</field>
+            <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='coach_id']" position="after">
-                    <field name="is_driver"/>
+                    <field name="is_driver" widget="toggle_button" />
                 </xpath>
             </field>
         </record>

@@ -1,0 +1,25 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="res.passenger" model="ir.actions.act_window">
+            <field name="name">Passenger</field>
+            <field name="res_model">res.passenger</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="bus_schedule_bdg_jkt" model="bus.schedule">
+            <field name="bus_id" ref="na_training_odoo.bus_damri_001" />
+            <field name="schedule" eval="DateTime.strptime('12/05/2023 11:45:21', '%d/%m/%Y %H:%M:%S')" />
+            <field name="departure" eval="DateTime.strptime('12/05/2023 12:00:00', '%d/%m/%Y %H:%M:%S')" />
+            <field name="arrival" eval="DateTime.strptime('12/05/2023 18:00:00', '%d/%m/%Y %H:%M:%S')" />
+            <field name="passenger_ids" eval="[
+                (4, ref('el_training_odoo.passenger_001')),
+                (0, 0, {
+                    'name' : 'Mamat',
+                    'weight' : 87.0,
+                    'height' : 167.0
+                })s]"
+            />
+            </record>
+    </data>
+</odoo>

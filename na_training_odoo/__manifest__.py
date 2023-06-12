@@ -28,8 +28,11 @@
 
     # always loaded
     'data': [
+        'data/data.xml'
+        'data/sequence.xml',
         'security/ir.model.access.csv',
         'views/menuitems.xml',
+        'views/employee_view.xml',
         'views/res_passenger_view.xml',
         'views/res_bus_view.xml',
         'views/bus_schedule_view.xml',
