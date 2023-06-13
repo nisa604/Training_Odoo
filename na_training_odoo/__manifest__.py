@@ -24,12 +24,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'hr'],
+    'depends': ['base', 'hr', 'mail'],
 
     # always loaded
     'data': [
         'data/data.xml',
         'data/sequence.xml',
+        'data/action_server.xml',
         'security/ir.model.access.csv',
         'views/menuitems.xml',
         'views/employee_view.xml',

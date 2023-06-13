@@ -21,6 +21,48 @@
             </field>
         </record>
         
+        <!-- Kanban View-->
+         <record model="ir.ui.view" id="res_bus_view_kanban">
+            <field name="name">res.bus.view.kanban</field>
+            <field name="model">res.bus</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="image" widget="image"/>
+                    <field name="code"/>
+                    <field name="state" widget="badge" 
+                        decoration-muted="state == 'draft'"
+                        decoration-success="state == 'ready'"
+                        decoration-danger="state == 'depr'"
+                        decoration-warning="state == 'mt'"
+                    />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                <div class="o_kanban_image d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('res.bus', 'image', record.id.raw_value, placeholder)}')">
+                                    <!-- <img alt="Avatar" t-att-src="kanban_image('res.bus', 'image', record.id.raw_value)"/> -->
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <strong class="o_kanban_record_title">
+                                            <field name="code"/>
+                                        </strong>
+                                        <li>
+                                            Name : <field name="name"/>
+                                        </li>
+                                        <li>
+                                            Status : <field name="state"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
         <!-- Form View -->
         <record model="ir.ui.view" id="res_bus_view_form">
             <field name="name">res.bus.view.form</field>
@@ -46,6 +88,11 @@
                             </group>
                         </group>
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" />
+                        <!-- <field name="activity_ids" widget="mail_activity"/> -->
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
                 </form>
             </field>
         </record>

@@ -4,15 +4,18 @@ from odoo.exceptions import UserError
 class BusSchedule(models.Model):
     _name = 'bus.schedule'
     _description="Jadwal keberangkatan setiap bus"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
 
-    name = fields.Char(string='Name')
-    schedule = fields.Datetime(string='Schedule')
-    payment_type = fields.Selection([("cash","Tunai"),("transfer","NonTunai")], string='Payment')
-    departure = fields.Datetime(string='Departure')
-    arrival = fields.Datetime(string='Arrival')
+
+    name = fields.Char(string='Name', default="New", readonly=True)
+    schedule = fields.Datetime(string='Schedule', tracking=True)
+    payment_type = fields.Selection([("cash","Tunai"),("transfer","NonTunai")], string='Payment', tracking=True)
+    departure = fields.Datetime(string='Departure', tracking=True)
+    arrival = fields.Datetime(string='Arrival', tracking=True)
     bus_id = fields.Many2one(
         comodel_name='res.bus',
         string='Bus',
+        tracking=True
     )
     route_id = fields.Many2one(
         comodel_name='bus.route',

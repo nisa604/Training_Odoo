@@ -4,11 +4,15 @@ from odoo.exceptions import UserError
 class ResBus(models.Model):
     _name = 'res.bus'
     _description = 'Mobil Bus'
+    _inherit = ["mail.thread", "mail.activity.mixin"]
+    _sql_constraints = [
+        ('bus_code_uniq', 'unique(code)', 'Kode Harus Unik!!')
+    ]
 
-    name = fields.Char(string='Name')
-    code = fields.Char(string='Code')
-    capacity = fields.Integer(string='Capacity')
-    image = fields.Binary(string='Image')
+    name = fields.Char(string='Name', tracking=True)
+    code = fields.Char(string='Code', tracking=True)
+    capacity = fields.Integer(string='Capacity', tracking=True)
+    image = fields.Binary(string='Image', tracking=True)
     state = fields.Selection(
         selection=[
             ("draft","Draft"),
@@ -17,5 +21,6 @@ class ResBus(models.Model):
             ("depr","Deprecated")
             ], 
         string='Status', 
-        default='draft'
+        default='draft',
+        tracking=True
         )
