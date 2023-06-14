@@ -24,3 +24,14 @@ class ResBus(models.Model):
         default='draft',
         tracking=True
         )
+    
+    @api.depends('code', 'name')
+    def name_get(self):
+        result = []
+        for record in self:
+            if record.name:
+                name = '[' + record.code + '] - ' + record.name
+            else:
+                name = record.name
+            result.append((record.id, name))
+        return result

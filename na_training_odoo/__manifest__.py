@@ -28,16 +28,19 @@
 
     # always loaded
     'data': [
+        'security/ir.model.access.csv',
+        'security/security.xml',
         'data/data.xml',
         'data/sequence.xml',
         'data/action_server.xml',
-        'security/ir.model.access.csv',
         'views/menuitems.xml',
         'views/employee_view.xml',
         'views/res_passenger_view.xml',
         'views/res_bus_view.xml',
         'views/bus_schedule_view.xml',
         'views/bus_route_view.xml',
+        'report/report.xml',
+        'report/bus_schedule_report.xml',
         
     ],
     # only loaded in demonstration mode

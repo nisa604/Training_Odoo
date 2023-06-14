@@ -33,6 +33,7 @@
                         type="object"
                         class="oe_highlight"
                         attrs="{'invisible': [('state', '!=', 'draft')]}"
+                        groups="na_training_odoo.group_bus_manager"
                     />
                     <button 
                         name="button_run"
@@ -40,6 +41,7 @@
                         type="object"
                         class="oe_highlight"
                         attrs="{'invisible': [('state', '!=', 'submit')]}"
+                        groups="na_training_odoo.group_bus_manager"
                     />
                     <button 
                         name="button_done"
@@ -47,6 +49,7 @@
                         type="object"
                         class="oe_highlight"
                         attrs="{'invisible': [('state', '!=', 'run')]}"
+                        groups="na_training_odoo.group_bus_manager"
                     />
                     </header>
                     <sheet>

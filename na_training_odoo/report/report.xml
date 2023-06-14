@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_bus_schedule_report-pdf" model="ir.actions.report">
+            <field name="name">Report Bus Schedule</field>
+            <field name="model">bus.schedule</field>
+            <field name="report_name">na_training_odoo.report_id_bus_schedule</field>
+            <field name="report_file">na_training_odoo.report_id_bus_schedule</field>
+            <field name="binding_model_id" ref="na_training_odoo.model_bus_schedule"/>
+            <field name="binding_type">report</field>
+            <!-- <field name="help">Something about Human readable name</field> -->
+        </record>
+        
+    </data>
+</odoo>
