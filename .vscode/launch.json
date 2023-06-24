@@ -17,7 +17,7 @@
             "args": [
                 "--config=D:/keep odoo/server/odoo.conf",
                 "--database=TRAINING",
-                "--update=na_training_odoo"
+                "--update=nti_training_academic"
             ]
         }
     ]
